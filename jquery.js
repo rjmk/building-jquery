@@ -12,7 +12,13 @@ function $$(identifierString, parent){
   };
 
   methodHolder.html = function(DOMString){
-    this.innerHTML = DOMString;
+    if (this.elements.length){
+      for(var i= 0; i < this.elements.length; i++){
+        this.elements[i].innerHTML = DOMString;
+      }
+    }
+    else this.innerHTML = DOMString;
+    return this;
   };
 
   methodHolder.get = function(location, callback){
@@ -28,6 +34,7 @@ function $$(identifierString, parent){
       }
     }
   };
+  return this;
   };
 
   var that = Object.create(methodHolder);
