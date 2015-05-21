@@ -15,6 +15,21 @@ function $$(identifierString, parent){
     this.innerHTML = DOMString;
   };
 
+  methodHolder.get = function(location, callback){
+    var request = new XMLHttpRequest();
+    request.open('GET',location,true);
+    request.send(null);
+    request.onreadystatechange = function(){
+    if (httpRequest.readyState === 4) {
+      if (httpRequest.status === 200) {
+        callback(request);
+      } else {
+        console.log('nuh uh');
+      }
+    }
+  };
+  };
+
   var that = Object.create(methodHolder);
   var cleanIdentifier = identifierString.trim();
   var identifierArray = cleanIdentifier.split(' ');
