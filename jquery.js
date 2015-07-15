@@ -46,10 +46,10 @@ $$ = (function(){
     var target = parent || document;
 
     if (cleanIdentifier[0] === '#'){
-      that.elements = [].slice.call(document.getElementById(identifierArray[0].slice(1)));
+      that.elements = [].slice.call(document.getElementById(identifierArray[0]).slice(1));
     }
     if (cleanIdentifier[0] === '.'){
-      that.elements = [].slice.call(target.getElementsByClassName(identifierArray[0].slice(1)));
+      that.elements = [].slice.call(target.getElementsByClassName(identifierArray[0]).slice(1));
     }
     else that.elements = target.getElementsByTagName(identifierArray[0]);
 
